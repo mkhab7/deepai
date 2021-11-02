@@ -1,0 +1,18 @@
+{
+    "name": "solid/deepai",
+    "description": "a php library for usage deepai.org apis",
+    "autoload": {
+        "psr-4": {
+            "Solid\\Deepai\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "solid",
+            "email": "myappgo123@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.4"
+    }
+}
