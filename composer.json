@@ -4,7 +4,10 @@
     "autoload": {
         "psr-4": {
             "Solid\\Deepai\\": "src/"
-        }
+        },
+    "classmap": [
+        "src/"
+    ]
     },
     "authors": [
         {
