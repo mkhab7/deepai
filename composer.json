@@ -1,17 +1,10 @@
 {
-    "name": "mkhab7/deepai",
-    "type": "library",
-    "description": "a php package for usage deepai.org apis",
-    "keywords": [
-        "deepai"
-    ],
+    "name": "solid/deepai",
+    "description": "a php library for usage deepai.org apis",
     "autoload": {
         "psr-4": {
             "Solid\\Deepai\\": "src/"
-        },
-    "classmap": [
-        "src/"
-    ]
+        }
     },
     "authors": [
         {
@@ -22,5 +15,7 @@
     "require": {
         "guzzlehttp/guzzle": "^7.4",
       "ext-curl": "*"
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
