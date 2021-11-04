@@ -16,12 +16,15 @@ you first should be take your api-key in Deepai construct
 after that you can use this
 */
 
-$deepai->setImage(''); // you can use a url or a local file path
+$deepai->setImage('image url'); 
+// you can use a url or a local file path , for example : $deepai->setImage(new CURLFile('image.jpg'));
+
+
 $deepai->colorize();
 /*
 you can use  colorize,toonify,suoerResolution for edit your pics 
-
 */
+
 try {
 
    $url = $deepai->apply()->getUrl();
