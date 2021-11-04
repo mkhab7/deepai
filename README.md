@@ -3,7 +3,7 @@
 a small library for usage deepai.org api
 
 <h1>install</h1>
-via composer :
+<h3>via composer :</h3>
 <br>
 <code>$ composer require mkhab7/deepai</code>
 <h1>usage</h1>
