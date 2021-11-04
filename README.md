@@ -1,15 +1,13 @@
-<h1>deepai</h1>
+# deepai
 
 a small library for usage [deepai.org](http://deepai.org) api
 
-<h1>install</h1>
-<h3>via composer :</h3>
-<br>
-<code>$ composer require mkhab7/deepai</code>
-<h1>usage</h1>
-<pre>
-<code>
-<?php
+# install
+## via composer :
+
+> composer require mkhab7/deepai
+# usage
+```php
 use Solid\Deepai\Deepai;
 
 require_once 'vendor/autoload.php';
@@ -40,6 +38,6 @@ try {
 } catch (\GuzzleHttp\Exception\GuzzleException $e) {
 }
 
-</code>
+```
 
-</pre>
+
