@@ -1,5 +1,5 @@
 {
-    "name": "solid/deepai",
+    "name": "mkhab7/deepai",
     "description": "a php library for usage deepai.org apis",
     "autoload": {
         "psr-4": {
