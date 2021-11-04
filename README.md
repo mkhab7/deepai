@@ -1,6 +1,6 @@
 <h1>deepai</h1>
 
-a small library for usage deepai.org api
+a small library for usage [deepai.org](deepai.org) api
 
 <h1>install</h1>
 <h3>via composer :</h3>
