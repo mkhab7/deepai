@@ -1,6 +1,10 @@
 {
     "name": "mkhab7/deepai",
+    "type": "library",
     "description": "a php package for usage deepai.org apis",
+    "keywords": [
+        "deepai"
+    ],
     "autoload": {
         "psr-4": {
             "Solid\\Deepai\\": "src/"
