@@ -2,6 +2,9 @@
 
 a small library for usage deepai.org api
 
+<h1>install</h1>
+via composer :
+<code>composer require mkhab7/deepai</code>
 <h1>usage</h1>
 <pre>
 <?php
