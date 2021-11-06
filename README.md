@@ -32,7 +32,7 @@ try {
    $url = $deepai->apply()->getUrl();
    //get edited image url
    
-   $deepai->apply()->save();
+   $deepai->apply()->save('output.jpg');
    //save edited image to local file
    
 } catch (\GuzzleHttp\Exception\GuzzleException $e) {
