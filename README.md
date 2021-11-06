@@ -28,7 +28,10 @@ you can use  colorize,toonify,suoerResolution for edit your pics
 */
 
 try {
+   
    $apply = $deepai->apply();
+   // send request and get result
+   
    $url = $apply->getUrl();
    //get edited image url
    
