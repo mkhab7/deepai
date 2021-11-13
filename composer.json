@@ -1,6 +1,6 @@
 {
     "name": "solid/deepai",
-    "description": "a php library for usage deepai.org apis",
+    "description": "a php library for using deepai.org apis",
     "autoload": {
         "psr-4": {
             "Solid\\Deepai\\": "src/"
