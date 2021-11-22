@@ -56,7 +56,8 @@ class Deepai
         try {
             return $this->client->request();
         } catch (\ErrorException | GuzzleException $e) {
-            echo $e->getMessage();
+            return throw new Error($e->getMessage());
         }
+       
     }
 }
