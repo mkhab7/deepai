@@ -27,19 +27,18 @@ $deepai->colorize();
 you can use  colorize,toonify,suoerResolution for edit your pics 
 */
 
-try {
+
    
-   $apply = $deepai->apply();
+   $result = $deepai->apply();
    // send request and get result
    
-   $url = $apply->getUrl();
+   $url = $result->getUrl();
    //get edited image url
    
-   $apply->save('output.jpg');
+   $result->save('output.jpg');
    //save edited image to local file
    
-} catch (\GuzzleHttp\Exception\GuzzleException $e) {
-}
+
 
 ```
 
