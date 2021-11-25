@@ -1,6 +1,6 @@
 # deepai
 
-a small library for using [deepai.org](http://deepai.org) api
+a library for using [deepai.org](http://deepai.org) api
 
 # install
 ## via composer :
