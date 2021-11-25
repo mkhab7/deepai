@@ -19,7 +19,9 @@ after that you can use this
 */
 
 $deepai->setImage('image url'); 
-// you can use a url or a local file path , for example : $deepai->setImage(new CURLFile('image.jpg'));
+// you can use a url or a local file path , for example : 
+
+$deepai->setImage(new CURLFile('image.jpg'));
 
 
 $deepai->colorize();
