@@ -19,7 +19,9 @@ class Request
     public function __construct(protected string $apiKey){}
 
     /**
+     *
      * @param string $action
+     * @return Request
      */
     public function setAction(string $action): Request
     {

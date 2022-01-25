@@ -17,5 +17,8 @@
       "ext-curl": "*"
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "require-dev": {
+        "pestphp/pest": "^1.21"
+    }
 }
