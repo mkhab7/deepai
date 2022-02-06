@@ -3,13 +3,15 @@ declare(strict_types=1);
 
 namespace Solid\Deepai;
 
-use Error;
+
 use GuzzleHttp\Exception\GuzzleException;
 use Solid\Deepai\Request\Request;
+use Solid\Deepai\Traits\Actions;
 
 class Deepai
 {
-    protected object $client;
+    use Actions;
+    protected Request $client;
 
     /**
      *
@@ -43,34 +45,23 @@ class Deepai
         return $this;
     }
 
-    public function colorize(): Deepai
-    {
-        $this->client->setAction('colorizer');
-        return $this;
-    }
-
-    public function toonify(): Deepai
-    {
-        $this->client->setAction('toonify');
-        return $this;
-    }
-
-    public function superResolution(): Deepai
-    {
-        $this->client->setAction('torch-srgan');
-        return $this;
-    }
 
     /**
-     * @return Response\Response
+     * @return Response\Response|\Exception
+     * @throws \Exception
      */
-    public function apply(): Response\Response
+
+    public function apply(): Response\Response|\Exception
     {
-        try {
+        if (!$this->client->isSet('image'))
+            throw new \Exception('Error :  image not set for the request');
+
+          if (empty($this->client->getAction()))
+              throw new \Exception('Error :  action not set for the request');
+
+
+
             return $this->client->request();
-        } catch (\ErrorException | GuzzleException $e) {
-            return throw new Error($e->getMessage());
-        }
 
     }
 }

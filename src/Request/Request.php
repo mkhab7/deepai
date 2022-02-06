@@ -16,7 +16,9 @@ class Request
 
     protected array $query;
 
-    public function __construct(protected string $apiKey){}
+    public function __construct(protected string $apiKey)
+    {
+    }
 
     /**
      *
@@ -29,6 +31,10 @@ class Request
         return $this;
     }
 
+    public function isSet($key): bool
+    {
+        return isset($this->query[$key]);
+    }
 
     public function addParam($key, mixed $value): Request
     {
@@ -38,26 +44,38 @@ class Request
 
     /**
      * @return Response
-     * @throws GuzzleException
+     * @throws \Exception
      */
     public function request(): Response
     {
-
         $client = new Client();
-        $response = $client->post(
-            $this->baseUrl . '/' . $this->action,
-            [
-                'headers' => ['api-key' => $this->apiKey],
-                'form_params' => $this->query
-            ]
-        );
+        try {
+            $response = $client->post(
+                $this->baseUrl . '/' . $this->action,
+                [
+                    'headers' => ['api-key' => $this->apiKey],
+                    'form_params' => $this->query,
+                ]
+            );
+            return new Response(
+                json_decode(
+                    $response
+                        ->getBody()
+                        ->getContents()
+                )
+            );
+        } catch (GuzzleException $e) {
+            throw new \Exception($e->getMessage());
+        }
 
-        return new Response(
-            json_decode(
-                $response
-                    ->getBody()
-                    ->getContents()
-            )
-        );
+
+    }
+
+    /**
+     * @return string
+     */
+    public function getAction(): string
+    {
+        return $this->action;
     }
 }
