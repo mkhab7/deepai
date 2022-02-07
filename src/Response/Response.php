@@ -11,11 +11,11 @@ class Response
     protected string $url;
 
     /**
-     * @param object $response
+     * @param object $data
      */
-    public function __construct(object $response)
+    public function __construct( protected object $data)
     {
-        $this->url = $response->output_url;
+        $this->url = $this->data->output_url;
     }
 
     /**
@@ -37,5 +37,15 @@ class Response
             ['sink' => $path]
         );
         return true;
+    }
+
+    /**
+     * get all the response data
+     *
+     * @return object
+     */
+    public function getData(): object
+    {
+        return $this->data;
     }
 }

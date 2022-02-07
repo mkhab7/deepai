@@ -16,6 +16,7 @@
         "guzzlehttp/guzzle": "^7.4",
       "ext-curl": "*"
     },
+    "license": "MIT",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require-dev": {
