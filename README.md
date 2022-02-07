@@ -33,7 +33,12 @@ $result->save('output.jpg');
  */
 $allResponseData = $result->getData();
 ```
-
+### You can adjust the text as needed
+example : 
+```php
+$deepai->setText('cat');
+$deepai->textToImage();
+```
 ## All the methods you can use
 - colorize
 - toonify
