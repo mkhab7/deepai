@@ -25,7 +25,7 @@ class Deepai
     public function __construct(protected string $apiKey)
     {
         if (empty($this->apiKey))
-            return throw new \Exception('api key value cannot be empty !');
+             throw new \Exception('api key value cannot be empty !');
 
         $this->client = new Request($this->apiKey);
     }
