@@ -3,10 +3,13 @@
 A library for using [deepai.org](http://deepai.org) api
 
 # install
+
 ## via composer :
 
 > composer require mkhab7/deepai
+
 # usage
+
 ```php
 use Solid\Deepai\Deepai;
 
@@ -24,7 +27,7 @@ $deepai->colorize();
    
 $result = $deepai->apply();
 
-$url = $result->getUrl();
+$url = $result->url();
 
 $result->save('output.jpg');
 
@@ -33,16 +36,42 @@ $result->save('output.jpg');
  */
 $allResponseData = $result->getData();
 ```
+
 ### You can adjust the text as needed
-example : 
+
+example :
+
 ```php
 $deepai->setText('cat');
 $deepai->textToImage();
 ```
+
+### if output is a text you can use "output"
+
+example :
+
+```php
+$deepai->setText('cat');
+$textOutput = $deepai->textGeneration()->apply()->output();//returns output url/text
+```
+
+### set a custom method :
+
+```php
+
+$deepai->setImage(new CURLFile('image.jpg'))
+
+        ->method('deepdream') //custom method
+        
+        ->apply();
+```
+
 ## All the methods you can use
+
 - colorize
 - toonify
 - superResolution
 - textToImage
+- textGeneration
 - nudityDetection
 - waifu2x
