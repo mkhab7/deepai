@@ -24,6 +24,8 @@
 |
 */
 
+use JetBrains\PhpStorm\Pure;
+
 expect()->extend('toBeOne', function () {
     return $this->toBe(1);
 });
@@ -39,7 +41,7 @@ expect()->extend('toBeOne', function () {
 |
 */
 
-function something()
+#[Pure] function response(array $data): Solid\Deepai\Response\Response
 {
-    // ..
+    return new Solid\Deepai\Response\Response((object)$data);
 }
