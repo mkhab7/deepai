@@ -12,7 +12,7 @@ class Request
 
     private string $baseUrl = 'https://api.deepai.org/api';
 
-    protected string $action;
+    protected string $method;
 
     protected array $query;
 
@@ -22,12 +22,12 @@ class Request
 
     /**
      *
-     * @param string $action
+     * @param string $method
      * @return Request
      */
-    public function setAction(string $action): Request
+    public function setMethod(string $method): Request
     {
-        $this->action = trim($action, '/');
+        $this->method = trim($method, '/');
         return $this;
     }
 
@@ -51,7 +51,7 @@ class Request
         $client = new Client();
         try {
             $response = $client->post(
-                $this->baseUrl . '/' . $this->action,
+                $this->baseUrl . '/' . $this->method,
                 [
                     'headers' => ['api-key' => $this->apiKey],
                     'form_params' => $this->query,
@@ -74,8 +74,8 @@ class Request
     /**
      * @return string
      */
-    public function getAction(): string
+    public function getMethod(): string
     {
-        return $this->action;
+        return $this->method;
     }
 }

@@ -1,15 +1,21 @@
 <?php
 
-namespace Solid\Deepai\Actions;
+namespace Solid\Deepai;
 
 use Solid\Deepai\Request\Request;
 use Solid\Deepai\Response\Response;
 
-class Action
+class Method
 {
 
     public function __construct(protected Request $client){}
 
+
+    public function method(string $method): self
+    {
+        $this->client->setMethod(trim($method));
+        return $this;
+    }
     /*
      * Colorize black and white images or videos using the image colorization API
      *
@@ -17,7 +23,7 @@ class Action
      */
     public function colorize(): self
     {
-        $this->client->setAction('colorizer');
+        $this->method('colorizer');
         return $this;
     }
 
@@ -28,7 +34,7 @@ class Action
      */
     public function toonify(): self
     {
-        $this->client->setAction('toonify');
+        $this->method('toonify');
         return $this;
     }
 
@@ -38,7 +44,7 @@ class Action
      */
     public function superResolution(): self
     {
-        $this->client->setAction('torch-srgan');
+        $this->method('torch-srgan');
         return $this;
     }
 
@@ -49,7 +55,18 @@ class Action
      */
     public function textToImage(): self
     {
-        $this->client->setAction('text2img');
+        $this->method('text2img');
+        return $this;
+    }
+
+    /*
+     * The text generation API is backed by a large-scale unsupervised language model that can generate paragraphs of text
+     *
+     * https://deepai.org/machine-learning-model/text-generator
+     */
+    public function textGeneration(): self
+    {
+        $this->method('text-generator');
         return $this;
     }
 
@@ -60,7 +77,7 @@ class Action
      */
     public function waifu2x(): self
     {
-        $this->client->setAction('waifu2x');
+        $this->method('waifu2x');
         return $this;
     }
 
@@ -69,7 +86,7 @@ class Action
      */
     public function nudityDetection(): self
     {
-        $this->client->setAction('nsfw-detector');
+        $this->method('nsfw-detector');
         return $this;
     }
 
@@ -80,8 +97,8 @@ class Action
 
     public function apply(): Response
     {
-        if (empty($this->client->getAction()))
-            throw new \Exception('Error :  action not set for the request');
+        if (empty($this->client->getMethod()))
+            throw new \Exception('Error :  method not set for the request');
 
         return $this->client->request();
 
