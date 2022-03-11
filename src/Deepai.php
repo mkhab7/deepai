@@ -5,7 +5,7 @@ namespace Solid\Deepai;
 
 
 use GuzzleHttp\Exception\GuzzleException;
-use Solid\Deepai\Actions\Action;
+use Solid\Deepai\Method;
 use Solid\Deepai\Request\Request;
 
 class Deepai
@@ -31,16 +31,16 @@ class Deepai
     }
 
 
-    public function setImage(string|\CURLFile $image): Action
+    public function setImage(string|\CURLFile $image): Method
     {
         $this->client->addParam('image', $image);
-        return new Action($this->client);
+        return new Method($this->client);
     }
 
 
-    public function setText(string $text): Action
+    public function setText(string $text): Method
     {
         $this->client->addParam('text', $text);
-        return new Action($this->client);
+        return new Method($this->client);
     }
 }
